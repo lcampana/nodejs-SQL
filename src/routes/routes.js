@@ -1,19 +1,3 @@
-/*
-//routes
-router.get('/users',(req,res)=>{
-    sql.get("SELECT * FROM INFORMATION_SCHEMA.TABLES",function(err,result){
-        if(err){
-            res.send(err);
-        }
-        else{
-            res.setHeader('Content-Type', 'text/html');
-            res.send(getTable("Pruebas",result));
-        } 
-    })
-});
-*/
-
-
 const router=require('express').Router();
 const sql=require("../sql/sql.js");
 var tablas=[]
