@@ -1,7 +1,10 @@
 const sql = require('msnodesqlv8')
-var connectionString = "Driver={SQL Server Native Client 11.0}";
-//connectionString = "server=DET407\\SQLEXPRESS;Database=Detector;Trusted_Connection=Yes;Driver={SQL Server Native Client 11.0}";
+var connectionStringDriver = "Driver={SQL Server Native Client 11.0}";
+var connectionString = "server=DET407\\SQLEXPRESS;Database=Detector;Trusted_Connection=Yes";
+setConnectionString(connectionString);
+
 const route=require("../routes/routes.js");
+
 
 
 function get(query,callback) {
@@ -10,10 +13,8 @@ function get(query,callback) {
 
 
 function setConnectionString(cs){
-    connectionString = cs.toString()+";"+connectionString;
-    if(connectionString.toLowerCase().includes("server=")){
-        
-    }else{
+    connectionString = cs.toString()+";"+connectionStringDriver;
+    if(!connectionString.toLowerCase().includes("server=")){
         connectionString=cs+";"+connectionString;
     }
     console.log(connectionString)

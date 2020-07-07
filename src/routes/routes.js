@@ -60,7 +60,7 @@ router.get("/tables",(req,res)=>{
     res.send(tablas)
 });
 
-router.get("/param",(req,res)=>{
+router.get("/params",(req,res)=>{
   var cs=req.query.cs;
     if(cs){
         sql.setConnectionString(cs);
