@@ -1,7 +1,8 @@
 const sql = require('msnodesqlv8')
 var connectionStringDriver = "Driver={SQL Server Native Client 11.0}";
 var connectionString = "server=DET407\\SQLEXPRESS;Database=Detector;Trusted_Connection=Yes";
-setConnectionString(connectionString);
+
+var dataBase="";
 
 const route=require("../routes/routes.js");
 
@@ -39,4 +40,5 @@ function getTables(){
 
 exports.get=get
 exports.setConnectionString=setConnectionString
+exports.dataBase=dataBase;
 
