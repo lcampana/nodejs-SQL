@@ -31,7 +31,7 @@ function setRoutes(tbl){
         var q=req.query.q;
         if(q){
             console.log(q);
-            sql.get(q,function(err,result){
+            sql.get(q.toString(),function(err,result){
                 if(err){
                     res.sendStatus(404).send(err);
                 }
@@ -69,7 +69,7 @@ router.get("/params",(req,res)=>{
 });
 
 router.get("/help",(req,res)=>{
-        const help="api/params?cs={String Connection}<br>api/tables<br>api/{Table}";
+        const help="api/params?cs={String Connection}<br>api/tables<br>api/{Table}<br>api/query?q={TSQL Query}";
         res.send(help)
     }
 );  
