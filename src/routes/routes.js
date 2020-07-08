@@ -33,10 +33,11 @@ function setRoutes(tbl){
             console.log(q);
             sql.get(q.toString(),function(err,result){
                 if(err){
+					console.log(err);
                     res.sendStatus(404).send(err);
                 }
                 else{
-                    res.setHeader('Content-Type', 'text/html');
+					res.type('html');
                     res.send(getTable(q,result));
                 } 
             })
@@ -44,11 +45,11 @@ function setRoutes(tbl){
     });
     for(let t in tbl){
         router.get(`/${tbl[t]}`,(req,res)=>{
-            sql.get(`SELECT * FROM ${tbl[t]}`,function(err,result){
+            sql.get(`SELECT TOP 100 * FROM ${tbl[t]}`,function(err,result){
                 if(err){
                     res.sendStatus(404).send(err);
                 }else{
-                    res.setHeader('Content-Type', 'text/html');
+                    res.type('html');
                     res.send(getTable(`${tbl[t]}`,result));
                 } 
             });
